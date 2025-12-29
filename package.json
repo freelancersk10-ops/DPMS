@@ -1,0 +1,27 @@
+{
+  "name": "digital-prescription-management-system",
+  "version": "1.0.0",
+  "description": "Digital Prescription Management System - Full Stack Application",
+  "scripts": {
+    "dev": "concurrently \"npm run dev:backend\" \"npm run dev:frontend\"",
+    "dev:backend": "cd backend && npm start",
+    "dev:frontend": "cd dpms && npm run dev",
+    "install:all": "npm install && cd backend && npm install && cd ../dpms && npm install",
+    "build": "cd dpms && npm run build",
+    "start:backend": "cd backend && npm start"
+  },
+  "keywords": [
+    "prescription",
+    "management",
+    "healthcare",
+    "react",
+    "express",
+    "mongodb"
+  ],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "concurrently": "^8.2.2"
+  }
+}
+
