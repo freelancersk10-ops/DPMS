@@ -81,6 +81,7 @@ VITE_API_BASE_URL=/api
 ```
 
 For production, set:
+
 ```env
 VITE_API_BASE_URL=http://your-backend-domain.com/api
 ```
@@ -96,7 +97,8 @@ npm run dev
 ```
 
 This will start:
-- Backend server on `http://localhost:5000`
+
+- Backend server on `https://dpms-3.onrender.com`
 - Frontend development server on `http://localhost:5173`
 
 ### Run Separately
@@ -149,28 +151,34 @@ Digital Prescription Management System/
 ## 🔌 API Endpoints
 
 ### Authentication
+
 - `POST /api/auth/login` - User login
 - `POST /api/auth/register` - User registration
 
 ### Users
+
 - `GET /api/users` - Get all users (Admin only)
 - `GET /api/users/role/:role` - Get users by role
 - `DELETE /api/users/:id` - Delete user (Admin only)
 
 ### Medications
+
 - `GET /api/medications` - Get all medications
 - `POST /api/medications` - Create medication (Admin only)
 
 ### Prescriptions
+
 - `GET /api/prescriptions` - Get all prescriptions
 - `GET /api/prescriptions/my-doctor` - Get doctor's prescriptions
 - `POST /api/prescriptions` - Create prescription
 
 ### Pharmacist
+
 - `GET /api/pharmacist/pending` - Get pending prescriptions
 - `PUT /api/pharmacist/enter-amount` - Update prescription amount
 
 ### QR Codes
+
 - `GET /api/qr/:prescriptionId` - Generate QR code for prescription
 
 ## 🔐 Authentication
@@ -187,14 +195,17 @@ The application uses JWT (JSON Web Tokens) for authentication. After login, the 
 ## 🐛 Troubleshooting
 
 ### MongoDB Connection Issues
+
 - Ensure MongoDB is running locally or check your MongoDB Atlas connection string
 - Verify `MONGO_URI` in backend `.env` file
 
 ### CORS Errors
+
 - Ensure `FRONTEND_URL` in backend `.env` matches your frontend URL
 - Check that both servers are running on the correct ports
 
 ### Port Already in Use
+
 - Change `PORT` in backend `.env` or frontend port in `vite.config.js`
 - Update `FRONTEND_URL` accordingly
 
@@ -207,4 +218,3 @@ The application uses JWT (JSON Web Tokens) for authentication. After login, the 
 ## 📄 License
 
 ISC
-
