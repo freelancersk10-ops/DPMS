@@ -3,7 +3,9 @@ import axios from 'axios';
 // Get API base URL from environment variable or use proxy in development
 // In development, Vite proxy handles /api requests, so we use relative path
 // In production, use full URL from env variable
-const API_BASE_URL = import.meta.env.VITE_API_BASE_URL || '/api';
+// For Netlify hosting, set VITE_API_BASE_URL=https://dpms-3.onrender.com/api
+const API_BASE_URL = import.meta.env.VITE_API_BASE_URL || 
+  (import.meta.env.PROD ? 'https://dpms-3.onrender.com/api' : '/api');
 
 // Create axios instance with default config
 const api = axios.create({
