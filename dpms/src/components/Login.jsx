@@ -94,7 +94,7 @@ function Login() {
 
         {/* Footer */}
         <p className="text-center text-muted mt-3 mb-0" style={{ fontSize: '13px' }}>
-          © 2025 Healthcare System
+          © 2025 SHCIANS
         </p>
       </div>
     </div>
