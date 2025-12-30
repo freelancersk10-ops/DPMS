@@ -76,6 +76,21 @@ function Medications() {
       : { text: 'Expired', class: 'bg-danger' }
   }
 
+  // -----------------------------
+  // Handle delete
+  // -----------------------------
+  const handleDelete = async (id) => {
+    if (!window.confirm('Are you sure you want to delete this medication?')) return
+
+    try {
+      await api.delete(`/medications/${id}`)
+      fetchMedications()
+    } catch (err) {
+      console.error('Error deleting medication:', err)
+      alert(err.response?.data?.message || 'Something went wrong')
+    }
+  }
+
   return (
     <>
       {/* Page Header */}
@@ -105,19 +120,20 @@ function Medications() {
                 <th>Dosage</th>
                 <th>Expiry Date</th>
                 <th>Status</th>
+                <th style={{ width: '140px' }}>Actions</th>
               </tr>
             </thead>
 
             <tbody>
               {loading ? (
                 <tr>
-                  <td colSpan="4" className="text-center py-4">
+                  <td colSpan="5" className="text-center py-4">
                     Loading...
                   </td>
                 </tr>
               ) : medications.length === 0 ? (
                 <tr>
-                  <td colSpan="4" className="text-center text-muted py-4">
+                  <td colSpan="5" className="text-center text-muted py-4">
                     No medications available
                   </td>
                 </tr>
@@ -133,6 +149,14 @@ function Medications() {
                         <span className={`badge ${status.class}`}>
                           {status.text}
                         </span>
+                      </td>
+                      <td>
+                        <button
+                          className="btn btn-sm btn-outline-danger"
+                          onClick={() => handleDelete(med._id)}
+                        >
+                          Delete
+                        </button>
                       </td>
                     </tr>
                   )
